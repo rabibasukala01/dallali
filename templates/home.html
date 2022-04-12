@@ -1,0 +1,103 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link rel="stylesheet" href="{%static 'home.css'%}">
+
+</head>
+
+<body>
+
+    <body>
+        <nav>
+
+            <ul>
+
+                {% if user.is_authenticated %}
+
+                <li>
+                    <p  style="text-transform:uppercase">{{user.first_name}} {{user.last_name}}</p>
+                <li id="logout-decor"><a href="/logout">Logout</a></li>
+                </li> 
+
+
+                {% else %}
+                <li id="login-decor"><a href="/sign_in">Login</a></li>
+              
+                {% endif %}
+
+
+
+
+                <li class="a"><a href="#">How to use</a></li>
+                <li class="a"><a href="/add">Add</a></li>
+                <li class="a"><a href="#">Map</a></li>
+                <li class="a"><a href="#">idk</a></li>
+
+                <li>
+                    <div id="search">
+                        <form action="" method="post" style="margin-left:50px ;">
+                     {%csrf_token%}
+                            <input type="text" name="searched" id="searchfield" placeholder="Enter Dristict">
+                            <input type="submit" name="submit" value="Search" id="search-btn">
+                        </form>
+                    </div>
+                </li>
+
+            </ul>
+
+        </nav>
+        <div class="wrapper">
+            <div class="cards_wrap">
+                <div class="card_item">
+                    <div class="card_inner">
+                        <div class="card_top">
+                            <img src="{%static 'image/download.jpg'%}"  alt="land" />
+                        </div>
+                        <div class="card_bottom">
+                            <div class="card_category">
+                                <a href="#"><img id="icons" src="{%static 'image/map.png' %}" alt="map"></a>
+                                
+                                <a href="#"><img id="icons" src="{%static 'image/comment.png'%}" alt="comment"></a>
+                                <div class="tooltip"><img id="icons" src="{%static 'image/phone.png' %}" alt="phone">
+                                    <span class="tooltiptext">9860488769</span>
+                                  </div>
+                            </div>
+                            <div class="card_info">
+                                <p class="title">Price: 12,00,000 NRS
+
+                                </p>
+                                <br>
+                                <p style="font-size: 15px;">
+                                    Quantity:1425 sq ft <br>
+
+                                </p>
+                                <address>Byasi Bhaktpur</address>
+
+                                <p>Status: <span class="status">SOLD</span>
+                                </p>
+
+
+                            </div>
+                            <div class="card_creator">
+                                <p>User</p>
+                                <p>Created at</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </body>
+
+</html>
