@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{%static 'dashboard.css'%}">
+</head>
+<body>
+    Dashboard
+    {% for post in dashboardposts %}
+    
+    <div class="card_item">
+        <div class="card_inner">
+            <div class="card_top">
+                <img src="{{post.landimage.url}}" alt="land" />
+            </div>
+           <div>
+            <a href="{% url 'delete_post' post.Userid %}">Delete</a>
+            <a href="{% url 'update_post' post.Userid %}">Update</a>
+           </div>
+            <div class="card_bottom">
+                <div class="card_category">
+                    <a href="{% url 'map' post.Userid%}"><img id="icons" src="{%static 'image/map.png' %}"
+                            alt="map"></a>
+
+
+                    
+                    <div class="tooltip"><img id="icons" src="{%static 'image/phone.png' %}" alt="phone">
+                        <span class="tooltiptext">{{post.phone_number}}</span>
+                    </div>
+                    
+
+                </div>
+                <div class="card_info">
+                    <p class="title">Price:{{post.price}} NRS
+
+                    </p>
+                    <br>
+                    <p style="font-size: 15px;">
+                        Quantity:{{post.quantity}} sq ft
+
+                    </p><br>
+                    <address>{{post.address}}</address><br>
+
+                    <p>Type: <span class="status">{{post.Type}}</span>
+                    </p>
+
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</body>
+</html>

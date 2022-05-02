@@ -1,1 +1,4 @@
 .env
+media/
+db.sqlite3
+dallalapp/migrations/

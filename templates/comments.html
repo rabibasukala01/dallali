@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comments</title>
+    <link rel="stylesheet" href="{%static 'comment.css'%}">
+</head>
+<body>      
+    <h3>Comments:</h3><br><br>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" name="comment" id="" placeholder='enter your comment'>
+        <input type="submit" value="comment">
+    </form>
+
+   
+   {% for comment in comments %}
+   <div class="container">
+    <div id="pfpside">
+        <img src="" alt="pfp">
+    </div>
+    <div id="commentside">
+        {{comment.User}}
+        <small>2020-188-31</small><br>
+         {{comment.Comments}}   
+     </div>
+</div>
+   {% endfor %}
+</body> 
+</html>

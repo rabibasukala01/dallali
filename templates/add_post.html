@@ -1,12 +1,36 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>add a post</title>
 </head>
 <body>
+    <form action="" method='post' enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="text" name="fullname" id="" placeholder='fullname'><br>
+        <input type="text" name="address" id="" placeholder='District'><br>
+        <input type="number" name="phone" id="" placeholder='phone number'><br>
+        <textarea name="about" id="" cols="30" rows="10"></textarea><br>
+        
+        <input type="number" step="any" name="quantity" id="" placeholder='quantity'><br>
+        <input type="number" step="any" name="price" id="" placeholder='price'><br>
+
+        <input type="radio" name="type" value="FIXED" id=""><div>FIXED</div>
+        <input type="radio" name="type" value="NEGOTIABLE" id=""><div>NEGOTIABLE</div>
+        <input type="number" step="any" name="latitude" id="" placeholder='latitude'><br>
+        <input type="number" step="any"  name="longitude" id="" placeholder='longitude'><br> 
+        <input type="file" name="image_file" id=""><br>
+        <input type="submit" value="submit">
+    </form>
     
+    {% for i in context %}
+    {{i.fullname}}
+    {{i.address}}
+<img src="{{i.landimage.url}}" alt="" width='100px'>   
+{{i.landimage.url}}
+{% endfor %}
 </body>
 </html>
