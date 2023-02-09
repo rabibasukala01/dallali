@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sign in</title>
-    <link rel="stylesheet" href={%static "sign_up.css"%}>
+    <link rel="stylesheet" href={%static "sign_up.css" %}>
 </head>
 
 <body>
@@ -18,19 +18,19 @@
         </div>
         <div id="sign-up">
             <form action="sign_up" method="post">
-               {% csrf_token %}
-                fname<input type="text" name='firstname' required><br>
-                lname<input type="text" name='lastname' required><br>
-                username<input type="text" name="username" id="" required><br>
-                email<input type="email" name="email" id="" required><br>
-                Phone<input type="tel" name="phone" id="" required><br>
-                password1<input type="password" name="password1" id="" required><br>
-                password2 <input type="password" name="password2" id="" required><br>
-                <input type="submit" value="submit">
+                {% csrf_token %}
+                <input class='box' type="text" name='firstname' required placeholder='First Name'><br>
+                <input class='box' type="text" name='lastname' required placeholder='Last Name'><br>
+                <input class='box' type="text" name="username" id="" required placeholder='Username'><br>
+                <input class='box' type="email" name="email" id="" required placeholder='Email Address'><br>
 
+                <input class='box' type="password" name="password1" id="" required placeholder='Password'><br>
+                <input class='box' type="password" name="password2" id="" required placeholder='Confirm Password'><br>
+                <input class='box' id="submit" type="submit" value="submit">
             </form>
+            <p id="fk">Already have an account?<a id="signin" href="{%url 'sign_in'%}">Sign in</a></p>
         </div>
-        <a href="{%url 'sign_in'%}">signin</a>
+
     </div>
 </body>
 

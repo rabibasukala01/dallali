@@ -1,0 +1,44 @@
+	--startup---
+
+
+UX
+
+
+
+
+
+#sign up  for karobar only
+    1.name
+    2.password
+    3.number for (verification) -optional
+    4.email -optional
+
+#signin for karobar only
+    1.name
+    2.password
+
+
+
+bechnu parye ma user bata liney:
+    .name
+    .address
+    .photos -process garney paila -size gatauney
+    .phone number
+    .about(paxi about ma nai number show garde)
+    .location:
+        latitude and longitude(google map ko link diney tya bata location-make tutorial video)
+
+with or without login
+
+home page :
+    4.Search for available property filter=>district
+    3.(card ma)
+    1.Comment section(link to discussion section)
+    5.photos-naksa,naturephoto
+    6.about field,
+    7.user datas	
+    2.link to respective map location
+
+
+
+

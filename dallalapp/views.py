@@ -17,6 +17,15 @@ from .form import PostForm
 
 
 def home(request):
+    if request.method == 'POST':
+        searched_query = (request.POST['searched']).capitalize()
+        # print(searched_query)
+        searched = Dhani.objects.filter(address=searched_query)
+        # print(searched)
+        context = {
+            'posts': searched
+        }
+        return render(request, 'home.html', context)
     posts = Dhani.objects.all()
     context = {
         'posts': posts
@@ -97,7 +106,7 @@ def add(request):
     if request.method == "POST" and request.FILES['image_file']:
         user = request.user
         fullname = request.POST['fullname']
-        address = request.POST['address']
+        address = request.POST['address'].capitalize()
         phone = request.POST['phone']
         about = request.POST['about']
         Type = request.POST['type']
@@ -106,6 +115,7 @@ def add(request):
 
         latitude = request.POST['latitude']
         longitude = request.POST['longitude']
+
         # handling date
         tz_ktm = pytz.timezone('Asia/Kathmandu')
         now = datetime.now(tz_ktm)
