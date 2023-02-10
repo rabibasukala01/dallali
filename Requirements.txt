@@ -13,3 +13,4 @@ requests==2.27.1
 sqlparse==0.4.2
 typing-extensions==4.1.1
 urllib3==1.26.9
+folium==0.12.1.post1

@@ -1,4 +1,4 @@
 .env
-media/
 db.sqlite3
+media/
 dallalapp/migrations/
