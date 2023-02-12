@@ -1,36 +1,106 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="{%static 'add_post.css'%}">
     <title>add a post</title>
 </head>
+
 <body>
     <form action="" method='post' enctype="multipart/form-data">
         {% csrf_token %}
-        <input type="text" name="fullname" id="" placeholder='fullname'><br>
-        <input type="text" name="address" id="" placeholder='District'><br>
-        <input type="number" name="phone" id="" placeholder='phone number'><br>
-        <textarea name="about" id="" cols="30" rows="10"></textarea><br>
-        
-        <input type="number" step="any" name="quantity" id="" placeholder='quantity'><br>
-        <input type="number" step="any" name="price" id="" placeholder='price'><br>
+        <div class="container-md">
 
-        <input type="radio" name="type" value="FIXED" id=""><div>FIXED</div>
-        <input type="radio" name="type" value="NEGOTIABLE" id=""><div>NEGOTIABLE</div>
-        <input type="number" step="any" name="latitude" id="" placeholder='latitude'><br>
-        <input type="number" step="any"  name="longitude" id="" placeholder='longitude'><br> 
-        <input type="file" name="image_file" id=""><br>
-        <input type="submit" value="submit">
+            <div class='mini-container'>
+                <p class="heading">
+                <h1>1.Information</h1>
+                </p>
+                <label for="inputfullname">Enter Fullname</label><br>
+                <input class="form-control box shadow-none" type="text" name="fullname" id=""
+                    placeholder='Fullname'><br>
+
+            </div>
+
+            <div class='mini-container'>
+                <label for="inputdistrict">District</label><br>
+                <input class="form-control box shadow-none" type="text" name="address" id=""
+                    placeholder='kathmandu'><br>
+
+            </div>
+
+            <div class='mini-container'>
+                <label for="phinput">Phone Number</label><br>
+                <input class="form-control box shadow-none" type="number" name="phone" id=""
+                    placeholder='9860488769'><br>
+
+            </div>
+
+
+            <div class='mini-container'>
+                <label for="inputabout">About</label><br>
+                <textarea class="box" name="about" id="" cols="30" rows="10" placeholder='About'></textarea><br>
+
+            </div>
+
+            <div class='mini-container'>
+                <label for="inputquantity">Quantity(sq.ft)</label><br>
+                <input class="form-control box shadow-none" type="number" step="any" name="quantity" id=""
+                    placeholder='quantity'><br>
+
+            </div>
+            <div class='mini-container'>
+                <label for="inputprice">Price(per sq.ft)</label><br>
+
+                <input class="form-control box shadow-none" type="number" step="any" name="price" id=""
+                    placeholder='price'><br>
+            </div>
+
+            <div class='mini-container'>
+                <label for="inputtype">Type</label><br>
+                <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input shadow-none" name="type" id="radio1" value="FIXED">
+                    <label class="form-check-label" for="radio1">FIXED</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input shadow-none" name="type" id="radio2" value="NEGOTIABLE">
+                    <label class="form-check-label" for="radio2">NEGOTIABLE</label>
+                </div>
+
+
+
+            </div>
+
+
+            <div class='mini-container'>
+                <label for="imgfile"></label><br>
+                <input class="form-control shadow-none" style="border: none;" type="file" name="image_file"
+                    id="imgfile"><br>
+            </div>
+
+            <div class='mini-container'>
+                <p class="heading">
+                <h1>2.Location</h1>
+                </p>
+                <label for="location">locations</label><br>
+                <input type="number" step="any" name="latitude" id="" placeholder='latitude'><br>
+                <input type="number" step="any" name="longitude" id="" placeholder='longitude'><br>
+
+
+            </div>
+            <input type="submit" value="Clear">
+            <input type="submit" value="submit">
+        </div>
     </form>
-    
-    {% for i in context %}
-    {{i.fullname}}
-    {{i.address}}
-<img src="{{i.landimage.url}}" alt="" width='100px'>   
-{{i.landimage.url}}
-{% endfor %}
+
 </body>
+
 </html>

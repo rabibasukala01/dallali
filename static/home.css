@@ -186,7 +186,6 @@ img {
 .tooltip {
   position: relative;
   display: inline-block;
-
 }
 
 .tooltip .tooltiptext {
@@ -200,9 +199,10 @@ img {
 
   /* Position the tooltip */
   position: absolute;
-  /* z-index: 0; */
-  top: -5px;
-  left: 105%;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
 }
 
 .tooltip:hover .tooltiptext {
