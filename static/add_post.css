@@ -4,6 +4,11 @@ body {
     padding: 0;
 }
 
+h1 {
+    color: #04AA6D;
+
+}
+
 .box {
     border: 0.1px solid rgb(187, 179, 179);
     border-radius: 8px;
@@ -19,4 +24,31 @@ body {
 input[type="radio"]:checked {
     background-color: #04AA6D;
     border-color: #04AA6D;
+}
+
+.submit {
+    border: none;
+    background-color: #04AA6D;
+    margin-top: 15px;
+    margin-left: 18px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    height: 50px;
+    width: 365px;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+
+}
+
+.submit:hover {
+    background-color: #000000;
+}
+
+#clear {
+    background-color: #c72d2d;
+}
+
+#clear:hover {
+    background-color: #000000;
 }

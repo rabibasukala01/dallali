@@ -12,81 +12,82 @@
 
 
     <link rel="stylesheet" href="{%static 'add_post.css'%}">
+    <link rel="stylesheet" href="/static/add_post.css">
     <title>add a post</title>
 </head>
 
 <body>
     <form action="" method='post' enctype="multipart/form-data">
         {% csrf_token %}
-        <div class="container-md">
+        <div class="container-md my-5">
 
-            <div class='mini-container'>
+            <div class='mini-container col-sm-7'>
                 <p class="heading">
                 <h1>1.Information</h1>
                 </p>
                 <label for="inputfullname">Enter Fullname</label><br>
-                <input class="form-control box shadow-none" type="text" name="fullname" id=""
-                    placeholder='Fullname'><br>
+                <input class="form-control box shadow-none" type="text" name="fullname" id="" placeholder='Fullname'
+                    required><br>
 
             </div>
 
-            <div class='mini-container'>
+            <div class='mini-container col-sm-7'>
                 <label for="inputdistrict">District</label><br>
-                <input class="form-control box shadow-none" type="text" name="address" id=""
-                    placeholder='kathmandu'><br>
+                <input class="form-control box shadow-none" type="text" name="address" id="" placeholder='kathmandu'
+                    required><br>
 
             </div>
 
-            <div class='mini-container'>
+            <div class='mini-container col-sm-7'>
                 <label for="phinput">Phone Number</label><br>
-                <input class="form-control box shadow-none" type="number" name="phone" id=""
-                    placeholder='9860488769'><br>
+                <input class="form-control box shadow-none" type="number" name="phone" id="" placeholder='9860488769'
+                    required><br>
 
             </div>
 
 
-            <div class='mini-container'>
+            <div class='mini-container col-sm-7'>
                 <label for="inputabout">About</label><br>
-                <textarea class="box" name="about" id="" cols="30" rows="10" placeholder='About'></textarea><br>
+                <textarea class="box" name="about" id="" cols="30" rows="10" placeholder='About'
+                    required></textarea><br>
 
             </div>
 
-            <div class='mini-container'>
+            <div class='mini-container col-sm-7'>
                 <label for="inputquantity">Quantity(sq.ft)</label><br>
                 <input class="form-control box shadow-none" type="number" step="any" name="quantity" id=""
-                    placeholder='quantity'><br>
+                    placeholder='quantity' required><br>
 
             </div>
-            <div class='mini-container'>
+            <div class='mini-container col-sm-7'>
                 <label for="inputprice">Price(per sq.ft)</label><br>
 
                 <input class="form-control box shadow-none" type="number" step="any" name="price" id=""
-                    placeholder='price'><br>
+                    placeholder='price' required><br>
             </div>
 
-            <div class='mini-container'>
+            <div class='mini-container col-sm-7'>
                 <label for="inputtype">Type</label><br>
                 <div class="form-check form-check-inline">
-                    <input type="radio" class="form-check-input shadow-none" name="type" id="radio1" value="FIXED">
+                    <input type="radio" class="form-check-input shadow-none" name="type" id="radio1" value="FIXED"
+                        required>
                     <label class="form-check-label" for="radio1">FIXED</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input type="radio" class="form-check-input shadow-none" name="type" id="radio2" value="NEGOTIABLE">
+                    <input type="radio" class="form-check-input shadow-none" name="type" id="radio2" value="NEGOTIABLE"
+                        required>
                     <label class="form-check-label" for="radio2">NEGOTIABLE</label>
                 </div>
-
-
-
             </div>
 
 
-            <div class='mini-container'>
+            <div class='mini-container col-sm-7'>
                 <label for="imgfile"></label><br>
                 <input class="form-control shadow-none" style="border: none;" type="file" name="image_file"
                     id="imgfile"><br>
             </div>
 
-            <div class='mini-container'>
+            <div class='mini-container mb-2 col-sm-7'>
                 <p class="heading">
                 <h1>2.Location</h1>
                 </p>
@@ -96,8 +97,10 @@
 
 
             </div>
-            <input type="submit" value="Clear">
-            <input type="submit" value="submit">
+            <div class="container-md d-flex justify-content-around ">
+                <button disabled="disabled" id='clear' class='submit'>Clear</button>
+                <input type="submit" value="submit" class='submit'>
+            </div>
         </div>
     </form>
 
