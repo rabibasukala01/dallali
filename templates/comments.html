@@ -1,33 +1,82 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comments</title>
-    <link rel="stylesheet" href="{%static 'comment.css'%}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{%static 'comment.css'%}"> 
+    {% comment %} <link rel="stylesheet" href="/static/comment.css"> {% endcomment %}
 </head>
-<body>      
-    <h3>Comments:</h3><br><br>
+
+<body>
+    <!-- comment garney section -->
     <form action="" method="post">
         {% csrf_token %}
-        <input type="text" name="comment" id="" placeholder='enter your comment'>
-        <input type="submit" value="comment">
-    </form>
+        <div class="container-md my-4">
+            <p>
+                <h2>Comments</h2>
+            </p>
+            <div class="row">
+                
+                <!-- TODO: pfp -->
+                <div id="" class=" pfp img-fluid col-1 m-1 p-1">
+                    <img src="" alt="pfp">
+                </div>
+                <div class="form-floating col-md my-1 p-1">
+                    <textarea class="form-control shadow-none box" name="comment" placeholder="Leave a comment here"
+                        id="floatingTextarea"></textarea>
+                    <label for="floatingTextarea">Leave a comment here</label>
+                </div>
 
-   
-   {% for comment in comments %}
-   <div class="container">
-    <div id="pfpside">
-        <img src="" alt="pfp">
+
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md offset-md-9">
+                    <button type="submit" class="btn delete disabled">Delete</button>
+                    <button type="submit" class="btn submit">Post</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- *** -->
+    <!-- comments  -->
+
+    <div class="container-md p-2">
+
+        {% for comment in comments %}
+        <div class="container-md my-4 border border-1">
+            <div class="row">
+                <div id="" class=" img-fluid col-1 m-1">
+                    <img src="" alt="pfp">
+                </div>
+                <div class="col-9 my-1 p-1">
+                    <small><strong>2023-06-27</strong> by {{comment.User}} </small><br>
+                    <label for=""> {{comment.Comments}}
+                          </label>
+                </div>
+
+            </div>
+
+        </div>
+        {% endfor %}
+        
+
     </div>
-    <div id="commentside">
-        {{comment.User}}
-        <small>2020-188-31</small><br>
-         {{comment.Comments}}   
-     </div>
-</div>
-   {% endfor %}
-</body> 
+
+
+    </div>
+
+    <!-- ** -->
+</body>
+
 </html>

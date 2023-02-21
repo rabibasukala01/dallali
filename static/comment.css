@@ -1,22 +1,65 @@
-*{
+* {
     padding: 0;
     margin: 0;
+
 }
 
-.container{
-    display: flex;
-    background-color: black;
+h2 {
+    color: #04AA6D;
+}
+
+.box {
+    border: 0.1px solid rgb(187, 179, 179);
+    border-radius: 8px;
+}
+
+.box:focus {
+    border-color: #04AA6D;
+    outline: none !important;
+}
+
+.pfp {
+    background-color: rgb(5, 12, 35);
+
+    border-radius: 100%;
+    object-fit: fill;
+
+}
+
+.submit {
+    background-color: #04AA6D;
+    border-radius: 8px;
+    border: 1px solid #04AA6D;
     color: white;
-    margin: 5px 10px 20px 10px;
-    justify-content: center;
-    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+
+
 }
 
-#pfpside{
-    background-color: red;
-    width: auto;
+.submit:hover {
+    background-color: white;
+    color: #04AA6D;
+
 }
-#commentside{
-    width: fit-content;
-    overflow: hidden;
+
+.delete {
+    background-color: red;
+    border: 1px solid red;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+
+
+}
+
+.delete:hover {
+    background-color: white;
+    color: red;
+
+}
+
+.commentsection {
+    height: auto;
 }
