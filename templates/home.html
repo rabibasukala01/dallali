@@ -14,95 +14,96 @@
 
 <body>
 
-    <body>
-        <nav>
 
-            <ul>
+    <nav>
 
-                {% if user.is_authenticated %}
+        <ul>
 
-                <li>
-                    <p style="text-transform:uppercase">{{user.first_name}} {{user.last_name}}</p>
-                <li id="logout-decor"><a href="/logout">Logout</a></li>
-                </li>
+            {% if user.is_authenticated %}
 
-
-                {% else %}
-                <li id="login-decor"><a href="/sign_in">Login</a></li>
-
-                {% endif %}
+            <li>
+                <p style="text-transform:uppercase">{{user.first_name}} {{user.last_name}}</p>
+            <li id="logout-decor"><a href="/logout">Logout</a></li>
+            </li>
 
 
+            {% else %}
+            <li id="login-decor"><a href="/sign_in">Login</a></li>
+
+            {% endif %}
 
 
-                <li class="a"><a href="{% url 'howto' %}">How to use</a></li>
-                <li class="a"><a href="{% url 'add' %}">Add</a></li>
-                <li class="a"><a href="{% url 'allmap' %}">Map</a></li>
-                <li class="a"><a href="{%url 'dashboard'%}">Dashboard</a></li>
 
-                <li>
-                    <div id="search">
-                        <form action="" method="post" style="margin-left:50px ;">
-                            {%csrf_token%}
-                            <input type="text" name="searched" id="searchfield" placeholder="Enter Dristict">
-                            <input type="submit" name="submit" value="Search" id="search-btn">
-                        </form>
+
+            <li class="a"><a href="{% url 'howto' %}">How to use</a></li>
+            <li class="a"><a href="{% url 'add' %}">Add</a></li>
+            <li class="a"><a href="{% url 'allmap' %}">Map</a></li>
+            <li class="a"><a href="{%url 'dashboard'%}">Dashboard</a></li>
+
+            <li>
+                <div id="search">
+                    <form action="" method="post" style="margin-left:50px ;">
+                        {%csrf_token%}
+                        <input type="text" name="searched" id="searchfield" placeholder="Enter Dristict">
+                        <input type="submit" name="submit" value="Search" id="search-btn">
+                    </form>
+                </div>
+            </li>
+
+        </ul>
+
+    </nav>
+    <div class="wrapper">
+        <div class="cards_wrap">
+            {% for post in posts %}
+            <div class="card_item">
+                <div class="card_inner">
+                    <div class="card_top">
+                        <img id='landimg' src="{{post.landimage.url}}" alt="land" />
                     </div>
-                </li>
+                    <div class="card_bottom">
+                        <div class="card_category">
+                            <a href="{% url 'map' post.Userid%}"><img id="icons" src="{%static 'image/map.png' %}"
+                                    alt="map"></a>
 
-            </ul>
 
-        </nav>
-        <div class="wrapper">
-            <div class="cards_wrap">
-                {% for post in posts %}
-                <div class="card_item">
-                    <div class="card_inner">
-                        <div class="card_top">
-                            <img id='landimg' src="{{post.landimage.url}}" alt="land" />
+                            <a href="{% url 'usercomments' post.Userid %}"><img id="icons"
+                                    src="{%static 'image/comment.png'%}" alt="comment"></a>
+                            <div class="tooltip"><img id="icons" src="{%static 'image/phone.png' %}" alt="phone">
+                                <span class="tooltiptext">{{post.phone_number}}</span>
+                            </div>
+
+
                         </div>
-                        <div class="card_bottom">
-                            <div class="card_category">
-                                <a href="{% url 'map' post.Userid%}"><img id="icons" src="{%static 'image/map.png' %}"
-                                        alt="map"></a>
+                        <div class="card_info">
+                            <p class="title">Price:{{post.price}} NRS
+
+                            </p>
+                            <br>
+                            <p style="font-size: 15px;">
+                                Quantity:{{post.quantity}} sq ft
+
+                            </p><br>
+                            <address>{{post.address}}</address><br>
+
+                            <p>Type: <span class="status">{{post.Type}}</span>
+                            </p>
 
 
-                                <a href="{% url 'usercomments' post.Userid %}"><img id="icons" src="{%static 'image/comment.png'%}" alt="comment"></a>
-                                <div class="tooltip"><img id="icons" src="{%static 'image/phone.png' %}" alt="phone">
-                                    <span class="tooltiptext">{{post.phone_number}}</span>
-                                </div>
-                                
-
-                            </div>
-                            <div class="card_info">
-                                <p class="title">Price:{{post.price}} NRS
-
-                                </p>
-                                <br>
-                                <p style="font-size: 15px;">
-                                    Quantity:{{post.quantity}} sq ft
-
-                                </p><br>
-                                <address>{{post.address}}</address><br>
-
-                                <p>Type: <span class="status">{{post.Type}}</span>
-                                </p>
-
-
-                            </div>
-                            <div class="card_creator">
-                                <p>{{post.fullname}}</p>
-                                <p>{{post.created_at}}</p>
-                            </div>
+                        </div>
+                        <div class="card_creator">
+                            <p>{{post.fullname}}</p>
+                            <p>{{post.created_at}}</p>
                         </div>
                     </div>
                 </div>
-                {% endfor %}
-
-
             </div>
-        </div>
+            {% endfor %}
 
-    </body>
+
+        </div>
+    </div>
+
+</body>
 
 </html>

@@ -175,7 +175,7 @@ def usercomments(request, pk):
 
     post = Dhani.objects.get(pk=pk)
     context = {
-        'comments': UserComments.objects.filter(post=post)
+        'comments': UserComments.objects.filter(post=post).order_by('-userid')
     }
     return render(request, 'comments.html', context)
 
